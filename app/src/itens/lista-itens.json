@@ -1,0 +1,55 @@
+{
+    "cabos": {
+
+        "titulo": "Cabos",
+        "descricaoGrupo": "HDMI, força, USB, etc.",
+
+        "itens": [ 
+            {
+                "pathImg": "../../img/cabos/",
+                "arquivoImg": "Detona.png",
+                "descricao": "",
+                "localArmazenado": "",
+                "palavraChave": ""
+            },
+
+            {
+                "pathImg": "../../img/cabos/",
+                "arquivoImg": "Detona.png",
+                "descricao": "",
+                "localArmazenado": "",
+                "palavraChave": ""
+            }
+
+        ]
+
+    },
+
+    "conectores": {
+
+        "titulo": "Conectores",
+        "descricaoGrupo": "HDMI, elétricos, crimpagem, etc.",
+
+        "itens": [ 
+            {
+                "pathImg": "../../img/cabos/",
+                "arquivoImg": "Detona.png",
+                "descricao": "",
+                "localArmazenado": "",
+                "palavraChave": ""
+            },
+
+            {
+                "pathImg": "../../img/cabos/",
+                "arquivoImg": "Detona.png",
+                "descricao": "",
+                "localArmazenado": "",
+                "palavraChave": ""
+            }
+
+        ]
+
+    }
+
+
+}
