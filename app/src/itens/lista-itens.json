@@ -6,7 +6,7 @@
 
         "itens": [ 
             {
-                "pathImg": "../../img/cabos/",
+                "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
                 "descricao": "",
                 "localArmazenado": "",
@@ -14,7 +14,7 @@
             },
 
             {
-                "pathImg": "../../img/cabos/",
+                "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
                 "descricao": "",
                 "localArmazenado": "",
@@ -32,7 +32,7 @@
 
         "itens": [ 
             {
-                "pathImg": "../../img/cabos/",
+                "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
                 "descricao": "",
                 "localArmazenado": "",
@@ -40,7 +40,7 @@
             },
 
             {
-                "pathImg": "../../img/cabos/",
+                "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
                 "descricao": "",
                 "localArmazenado": "",
