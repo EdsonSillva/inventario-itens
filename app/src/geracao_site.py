@@ -1,13 +1,14 @@
 
 
+def criar_arquivo_index(itens_inventario: dict, model_index: dict) -> str:
+    pass
 
 
-
-def criar_index(itens_inventario: dict, model_index: dict) -> bool:
+def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
     """
     Ciar o arquivo de índice baseado no json de itens
 
-    return: true se conseguir criar o index
+    return: retorna a página index pronta para ser gerado o arquivo
     """
 
     # Carregar as partes dos arquivos para serem usados como modelo
@@ -22,14 +23,13 @@ def criar_index(itens_inventario: dict, model_index: dict) -> bool:
 
     item_final: str = ""
 
-    # Pega cada item de grupo do inventário
+    # Pega cada item de grupo do inventário e cria os links para a página index
     for item_inventario in itens_inventario.items():
 
         item_href: str =  item_index_model.replace(
                                 "[[href-item]]",
                                 f"view/{item_inventario[0]}.html" 
                            )
-
 
         item_grupo: str =  item_href.replace(
                                 "[[item-grupo]]",
@@ -42,12 +42,18 @@ def criar_index(itens_inventario: dict, model_index: dict) -> bool:
                            )
 
         item_final = item_final + item_completo
-        # item_final.append(item_completo)
 
+
+    pagina_index: str = page_index_model.replace(
+                                "[[itens-inventario]]",
+                                item_final
+                                )
 
     print("\n\n")
     print("-"*40)
-    print(item_final)
+    print(pagina_index)
+
+    return pagina_index
 
 
 

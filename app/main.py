@@ -9,7 +9,8 @@
 import json
 
 from src.geracao_site import (
-    criar_index
+    criar_arquivo_index,
+    gerar_pagina_index
 )
 
 
@@ -37,11 +38,13 @@ def main():
     print(itens_inventario)
     print(type(itens_inventario))
 
-    # Criar o index
+    # Criar o index - Ok
     
-    ok = criar_index(itens_inventario, index_model)
+    pagina_index = gerar_pagina_index(itens_inventario, index_model)
 
-    # Criar os arquivos dos itens
+    # TODO: codificar criar_arquivo_index()
+
+    # TODO: Criar os arquivos dos itens
 
 
 
