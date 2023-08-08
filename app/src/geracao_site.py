@@ -1,12 +1,23 @@
 
 
-def criar_arquivo_index(itens_inventario: dict, model_index: dict) -> str:
-    pass
+from pathlib import (
+    Path
+)
+
+
+index_html = {
+    "pathIndex": f"{Path(__file__).parent.parent.parent}/site-inventario",
+    "arqIndex": "index.html"
+}
+
+view_html = {
+    "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view"
+}
 
 
 def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
     """
-    Ciar o arquivo de índice baseado no json de itens
+    Gerar a página de índice baseado no json de itens
 
     return: retorna a página index pronta para ser gerado o arquivo
     """
@@ -49,11 +60,157 @@ def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
                                 item_final
                                 )
 
-    print("\n\n")
-    print("-"*40)
-    print(pagina_index)
-
     return pagina_index
 
 
+def criar_arquivo_index(pagina_index: str) -> bool:
+    """
+    Cria o arquivo index com a página de índice baseado no json de itens
+
+    return: retorna true se criar o arquivo
+    """
+        
+    arquivo_html = Path(f"{index_html['pathIndex']}/{index_html['arqIndex']}")
+
+    return criar_arquivo_html(arquivo_html, pagina_index)
+
+
+def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
+    """
+    Gerar os arquivos das views em html
+
+    return: 
+    """
+    erro = 0
+
+    # Carregar as partes dos arquivos para serem usados como modelo
+
+    arq_page_view = open(f'{model_view["path"]}/{model_view["filePage"]}', mode="r", encoding="utf-8")
+    page_view_model = arq_page_view.read()
+    arq_page_view.close()
+
+    arq_item_view = open(f'{model_view["path"]}/{model_view["fileItem"]}', mode="r", encoding="utf-8")
+    item_view_model = arq_item_view.read()
+    arq_item_view.close()
+
+    # Pega cada item de grupo do inventário
+    for item_inventario in itens_inventario.items():
+
+        item_view: str = gerar_lista_view(item_inventario[1]['itens'], 
+                                          item_view_model
+                                         )
+
+        pagina_view: str = gerar_pagina_view(item_inventario[1]['titulo'],
+                                             item_view, 
+                                             page_view_model
+                                            )
+
+        exec_ok = criar_arquivo_view(item_inventario[0], pagina_view)
+
+        if exec_ok:
+            msg = f">> Criado com sucesso o arquivo: {item_inventario[0]}.html"
+        else:
+            erro = erro + 1
+            msg = f">> Problema na criação do arquivo: {item_inventario[0]}.html"
+
+        print(msg)
+
+    if erro > 0:
+        return False
+    
+    return True
+
+def gerar_lista_view(itens: list, item_view_html: str) -> str:
+    """
+    Gerar a lista dos view em html
+    """
+
+    item_view: str = ""
+
+    # Pega cada item 
+    for item in itens:
+
+        # print(item)
+
+        item_href: str =  item_view_html.replace(
+                                "[[href-img-item]]",
+                                f"{item['pathImg']}/{item['arquivoImg']}" 
+                            )
+
+        item_descricao: str =  item_href.replace(
+                                     "[[descricao-item]]",
+                                     item['descricao']
+                                )
+
+        item_local: str =  item_descricao.replace(
+                                "[[local-item]]",
+                                item['localArmazenado']
+                           )
+
+        item_palavra_chave: str =  item_local.replace(
+                                    "[[palavra-chave-item]]",
+                                    item['palavraChave']
+                                   )
+
+        item_view = item_view + item_palavra_chave
+
+    # print(item_view)
+
+    return item_view
+
+
+def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str) -> str:
+    """
+    Gerar a página em html do arquivo das views
+
+    """
+
+    pagina_view: str = page_view_html.replace(
+                            "[[item-grupo]]",
+                            titulo
+                        )
+
+    pagina_view = pagina_view.replace(
+                        "[[itens]]",
+                        itens_html
+                    )
+
+    # print(pagina_view)
+
+    return pagina_view
+
+
+def criar_arquivo_view(nome_arquivo: str, pagina_view: str) -> bool:
+    """
+    Cria o arquivo view com os itens baseado no json de itens
+
+    return: retorna true se criar o arquivo
+    """
+        
+    arquivo_html = Path(f"{view_html['pathView']}/{nome_arquivo}.html")
+    
+    return criar_arquivo_html(arquivo_html, pagina_view)
+
+
+def criar_arquivo_html(arquivo_html: str, conteudo_html: str) -> bool:
+    """
+    Cria o arquivo html
+
+    return: retorna true se criar o arquivo
+    """
+
+    try:
+        
+        # print(arquivo_html)
+
+        arq_view = open(arquivo_html, "w", encoding='utf-8')
+        bytes = arq_view.write(conteudo_html)
+        # print(bytes)
+        arq_view.close()
+
+        return True
+
+    except Exception as e:
+
+        return False
 

@@ -9,8 +9,9 @@
 import json
 
 from src.geracao_site import (
+    gerar_pagina_index,
     criar_arquivo_index,
-    gerar_pagina_index
+    gerar_views,
 )
 
 
@@ -23,7 +24,7 @@ index_model = {
 }
 
 view_model = {
-    "Path": "app/src/model/view",
+    "path": "app/src/model/view",
     "filePage": "01_page_view.html",
     "fileItem": "02_item_view.html"
 }
@@ -35,21 +36,30 @@ def main():
     itens_inventario = json.loads(arquivo_itens.read())
     arquivo_itens.close()
 
-    print(itens_inventario)
-    print(type(itens_inventario))
+    # print(itens_inventario)
+    # print(type(itens_inventario))
 
-    # Criar o index - Ok
+    # Gerar a página index - Ok
     
     pagina_index = gerar_pagina_index(itens_inventario, index_model)
 
-    # TODO: codificar criar_arquivo_index()
+    # codificar criar_arquivo_index()
+
+    exec_ok = criar_arquivo_index(pagina_index)
 
     # TODO: Criar os arquivos dos itens
 
+    if exec_ok:
+
+        exec_ok = gerar_views(itens_inventario, view_model)
+
+        if exec_ok:
+            print("Criação do site com sucesso")
+    
 
 
+# Executar a ciação do site Inventário de Itens da Familia Sillva
 
-
-# Executando a função
+print("Iniciando a criação do site invetário de itens da Família Sillva ...")
 
 main()

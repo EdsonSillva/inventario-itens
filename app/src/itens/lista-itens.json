@@ -8,17 +8,17 @@
             {
                 "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
-                "descricao": "",
-                "localArmazenado": "",
-                "palavraChave": ""
+                "descricao": "Cabo de conexão HDMI nas duas pontas",
+                "localArmazenado": "Sotom",
+                "palavraChave": "HDMI, Cabo, Conexão"
             },
 
             {
                 "pathImg": "../img/cabos",
                 "arquivoImg": "Detona.png",
-                "descricao": "",
-                "localArmazenado": "",
-                "palavraChave": ""
+                "descricao": "Cabo de força três pinos (antigo)",
+                "localArmazenado": "Quarto garagem",
+                "palavraChave": "Cabo, força, eletricidade"
             }
 
         ]
