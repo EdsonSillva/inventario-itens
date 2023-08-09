@@ -1,5 +1,5 @@
 """
-    Projeto Cadastro de itens pata visualização via navegador
+    Projeto Cadastro de itens para visualização via navegador
 
     Autor: Edson Silva
     data: 08/23
@@ -14,20 +14,26 @@ from src.geracao_site import (
     gerar_views,
 )
 
+from src.include import (
+    _ARQUIVO_ITENS_,
+    index_model,
+    view_model
 
-_ARQUIVO_ITENS_ = "app/src/itens/lista-itens.json"
+)
 
-index_model = {
-    "path": "app/src/model/index",
-    "filePage": "01_page_index.html",
-    "fileItem": "02_item_index.html"
-}
+# _ARQUIVO_ITENS_ = "app/src/itens/lista-itens.json"
 
-view_model = {
-    "path": "app/src/model/view",
-    "filePage": "01_page_view.html",
-    "fileItem": "02_item_view.html"
-}
+# index_model = {
+#     "path": "app/src/model/index",
+#     "filePage": "01_page_index.html",
+#     "fileItem": "02_item_index.html"
+# }
+
+# view_model = {
+#     "path": "app/src/model/view",
+#     "filePage": "01_page_view.html",
+#     "fileItem": "02_item_view.html"
+# }
 
 def main():
 
