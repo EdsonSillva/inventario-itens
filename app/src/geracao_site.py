@@ -4,15 +4,20 @@ from pathlib import (
     Path
 )
 
+from src.include import (
+    index_html,
+    view_html
+)
 
-index_html = {
-    "pathIndex": f"{Path(__file__).parent.parent.parent}/site-inventario",
-    "arqIndex": "index.html"
-}
 
-view_html = {
-    "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view"
-}
+# index_html = {
+#     "pathIndex": f"{Path(__file__).parent.parent.parent}/site-inventario",
+#     "arqIndex": "index.html"
+# }
+
+# view_html = {
+#     "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view"
+# }
 
 
 def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
@@ -96,7 +101,8 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
     # Pega cada item de grupo do inventário
     for item_inventario in itens_inventario.items():
 
-        item_view: str = gerar_lista_view(item_inventario[1]['itens'], 
+        item_view: str = gerar_lista_view(item_inventario[1]['nomePasta'],
+                                          item_inventario[1]['itens'], 
                                           item_view_model
                                          )
 
@@ -105,13 +111,15 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
                                              page_view_model
                                             )
 
-        exec_ok = criar_arquivo_view(item_inventario[0], pagina_view)
+        nome_arquivo: str = item_inventario[1]['nomePasta']
+
+        exec_ok = criar_arquivo_view(nome_arquivo, pagina_view)
 
         if exec_ok:
-            msg = f">> Criado com sucesso o arquivo: {item_inventario[0]}.html"
+            msg = f">> Criado com sucesso o arquivo: {nome_arquivo}.html"
         else:
             erro = erro + 1
-            msg = f">> Problema na criação do arquivo: {item_inventario[0]}.html"
+            msg = f">> Problema na criação do arquivo: {nome_arquivo}.html"
 
         print(msg)
 
@@ -120,43 +128,82 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
     
     return True
 
-def gerar_lista_view(itens: list, item_view_html: str) -> str:
+
+def gerar_lista_view(nome_pasta: str, itens: list, item_view_html: str) -> str:
     """
     Gerar a lista dos view em html
     """
 
-    item_view: str = ""
+    itens_view: str = ""
+    num_item: int = 1
 
     # Pega cada item 
     for item in itens:
 
         # print(item)
 
-        item_href: str =  item_view_html.replace(
+        path_imagem: str = item['pathImg']
+        path_local_imagem: str = item['pathLocalArmazenado']
+
+        path_imagem = path_imagem.replace("[[nomePasta]]",
+                                           nome_pasta
+                                        )
+        
+        path_local_imagem = path_local_imagem.replace("[[nomePasta]]",
+                                                      nome_pasta
+                                                    )
+
+        item_view: str =  item_view_html.replace(
                                 "[[href-img-item]]",
-                                f"{item['pathImg']}/{item['arquivoImg']}" 
+                                f"{path_imagem}/{item['arquivoImg']}" 
                             )
 
-        item_descricao: str =  item_href.replace(
-                                     "[[descricao-item]]",
-                                     item['descricao']
-                                )
+        item_view =  item_view.replace(
+                            "[[descricao-item]]",
+                            item['descricao']
+                    )
 
-        item_local: str =  item_descricao.replace(
-                                "[[local-item]]",
-                                item['localArmazenado']
-                           )
+        #  O .replace já muda todas das ocorrências
 
-        item_palavra_chave: str =  item_local.replace(
-                                    "[[palavra-chave-item]]",
-                                    item['palavraChave']
-                                   )
+        # existe_num_id = item_view.find("[[num-local-item]]", 0)
 
-        item_view = item_view + item_palavra_chave
+        # # Atualiza todas as ocorrências de num-local-item
+        # while (existe_num_id > 0):
+            
+        #     item_view =  item_view.replace(
+        #                     "[[num-local-item]]",
+        #                     str(num_item)
+        #                 )
 
-    # print(item_view)
+        #     existe_num_id = item_view.find("[[num-local-item]]", 0)
 
-    return item_view
+        item_view =  item_view.replace(
+                        "[[num-local-item]]",
+                        str(num_item)
+                    )
+        
+        num_item = num_item + 1     # Adiciona mais um na contagem
+
+        item_view =  item_view.replace(
+                        "[[local-item]]",
+                        item['localArmazenado']
+                    )
+
+        item_view =  item_view.replace(
+                        "[[href-img-local]]",
+                        f"{path_local_imagem}/{item['arquivoImgArmazenado']}"
+                    )
+
+        item_view =  item_view.replace(
+                        "[[palavra-chave-item]]",
+                        item['palavraChave']
+                    )
+
+        itens_view = itens_view + item_view
+
+    # print(itens_view)
+
+    return itens_view
 
 
 def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str) -> str:

@@ -1,0 +1,156 @@
+{
+    "cabos": {
+
+        "titulo": "Cabos",
+        "nomePasta": "cabos",
+        "descricaoGrupo": "HDMI, força, USB, etc.",
+
+        "itens": [ 
+            {
+                "descricao": "Cabo de conexão HDMI nas duas pontas",
+                "localArmazenado": "Sotom",
+                "palavraChave": "HDMI, Cabo, Conexão",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"                
+            },
+
+            {
+                "descricao": "Cabo de força três pinos (antigo)",
+                "localArmazenado": "Quarto garagem",
+                "palavraChave": "Cabo, força, eletricidade",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            }
+
+        ]
+
+    },
+
+    "audioVideo": {
+
+        "titulo": "Audio & Videos",
+        "nomePasta": "audioVideo",
+        "descricaoGrupo": "HDMI, RCA, Equipamentos, Receptor BlueTooth, etc.",
+
+        "itens": [ 
+            {
+                "descricao": "Receptor e transmissor Bluetooth",
+                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
+                "palavraChave": "Bluetooth, recepção, transmissão, RCA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"                
+            },
+
+            {
+                "descricao": "Equipamento de audio óptico com saida RCA",
+                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
+                "palavraChave": "Audio, óptico, RCA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            }
+
+        ]
+
+    },
+
+    "conectores": {
+
+        "titulo": "Conectores",
+        "nomePasta": "conectores",
+        "descricaoGrupo": "HDMI, elétricos, crimpagem, etc.",
+
+        "itens": [ 
+            {
+                "descricao": "Conector USB type-c para USB 3.0",
+                "localArmazenado": "Caixa vermelha de componentes que fica no armário do salão",
+                "palavraChave": "USB, Type-c, 3.0",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Conector USB 3.0 para USB type-c",
+                "localArmazenado": "Caixa vermelha de componentes que fica no armário do salão",
+                "palavraChave": "USB, Type-c, 3.0",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            }
+
+        ]
+
+    },
+
+    "ferramentas": {
+
+        "titulo": "Ferramentas",
+        "nomePasta": "ferramentas",
+        "descricaoGrupo": "Ferramentas de uso geral, alicates, crimpadores, chaves, kits de chaves, etc",
+
+        "itens": [ 
+            {
+                "descricao": "Alicate de crimpagem de conectores elétricos",
+                "localArmazenado": "Caixa vermelha de componentes que fica no armário do salão",
+                "palavraChave": "Alicate, crimpagem, conectores",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Alicate de pressão",
+                "localArmazenado": "Quarto da garagem",
+                "palavraChave": "Alicate, pressão",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Alicate de crimpagem de RJ45, RJ11",
+                "localArmazenado": "Mala amarela",
+                "palavraChave": "Rede, crimpagem",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Alicate de descascar fio",
+                "localArmazenado": "Mala amarela",
+                "palavraChave": "Fio, descascar",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            }
+
+        ]
+
+    }
+
+}
