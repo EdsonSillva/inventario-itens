@@ -12,11 +12,15 @@
                 "palavraChave": "HDMI, Cabo, Conexão",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "alicate.jpg",
+                "pathImgExtra": {
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/AlicateSH"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"                
             },
-
+            
             {
                 "descricao": "Cabo de força três pinos (antigo)",
                 "localArmazenado": "Quarto garagem",
@@ -24,9 +28,29 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Cabo de de teste para multimetro e/ou fonte de bancada",
+                "localArmazenado": "Em uso no multimetro amarelo",
+                "palavraChave": "Teste, força, eletricidade",
+
+                "pathImg": "https://1drv.ms/i",
+                "arquivoImg": "s!AiNvT9dowPmnsa0nlhNyBZBlMTpIcQ?e=eLQ6Gr",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             }
+
 
         ]
 
@@ -46,6 +70,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"                
             },
@@ -57,9 +85,29 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"
+            },
+
+            {
+                "descricao": "Equipamento de audio óptico com saida RCA",
+                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
+                "palavraChave": "Audio, óptico, RCA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             }
+
 
         ]
 
@@ -79,6 +127,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             },
@@ -90,6 +142,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             }
@@ -112,6 +168,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             },
@@ -123,6 +183,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             },
@@ -134,6 +198,10 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
             },
@@ -145,8 +213,38 @@
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
+            }
+
+        ]
+
+    },
+
+    "equipamentos": {
+
+        "titulo": "Equipamentos",
+        "nomePasta": "equipamentos",
+        "descricaoGrupo": "Equipamentos e máquinas em geral",
+
+        "itens": [ 
+            {
+                "descricao": "Serra marmore (Maquita)",
+                "localArmazenado": "Em uma caixa de platico no Quatinho da garagem",
+                "palavraChave": "Maquita, serra marmore, etc",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Detona.png",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "20190207_183200.jpg"                
             }
 
         ]

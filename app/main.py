@@ -21,19 +21,6 @@ from src.include import (
 
 )
 
-# _ARQUIVO_ITENS_ = "app/src/itens/lista-itens.json"
-
-# index_model = {
-#     "path": "app/src/model/index",
-#     "filePage": "01_page_index.html",
-#     "fileItem": "02_item_index.html"
-# }
-
-# view_model = {
-#     "path": "app/src/model/view",
-#     "filePage": "01_page_view.html",
-#     "fileItem": "02_item_view.html"
-# }
 
 def main():
 

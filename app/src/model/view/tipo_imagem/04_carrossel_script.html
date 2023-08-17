@@ -1,0 +1,19 @@
+
+<script>
+
+    window.onload = function pauseCarrossel() {
+          for (let index = 0; index < [[qtdeCarrossel]]; index++) {
+            const element = '#Carousel'+index;
+            $(element).carousel('pause');
+          }
+    }
+  
+    function estadoCarrossel(numCarrossel, idCarrossel, txtEstado, cmdEstado) {
+        
+      $(idCarrossel).carousel(cmdEstado);
+      document.querySelector('#statusCarousel'+numCarrossel).textContent = txtEstado;
+      
+    }
+  
+  </script>
+  
