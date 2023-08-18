@@ -4,20 +4,19 @@ from pathlib import (
     Path
 )
 
+import os
+
 from src.include import (
     index_html,
-    view_html
+    view_html,
+    imagem_model,
+    retorno_path_enum,
+    model_enum
 )
 
-
-# index_html = {
-#     "pathIndex": f"{Path(__file__).parent.parent.parent}/site-inventario",
-#     "arqIndex": "index.html"
-# }
-
-# view_html = {
-#     "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view"
-# }
+from src.suporte import (
+    get_model
+)
 
 
 def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
@@ -48,7 +47,7 @@ def gerar_pagina_index(itens_inventario: dict, model_index: dict) -> str:
                            )
 
         item_grupo: str =  item_href.replace(
-                                "[[item-grupo]]",
+                                "[[nome-item-grupo]]",
                                 item_inventario[1]['titulo']
                            )
 
@@ -90,25 +89,49 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
 
     # Carregar as partes dos arquivos para serem usados como modelo
 
-    arq_page_view = open(f'{model_view["path"]}/{model_view["filePage"]}', mode="r", encoding="utf-8")
-    page_view_model = arq_page_view.read()
-    arq_page_view.close()
+    page_view_model = get_model(f'{model_view["path"]}', f'{model_view["filePage"]}')
 
-    arq_item_view = open(f'{model_view["path"]}/{model_view["fileItem"]}', mode="r", encoding="utf-8")
-    item_view_model = arq_item_view.read()
-    arq_item_view.close()
+    itens_html_model: dict = {
+
+        "item_view_model": get_model(f'{model_view["path"]}', f'{model_view["fileItem"]}'),
+
+        "html_img_unica_model": get_model(f'{imagem_model["imagemUnica"]["path"]}',
+                                          f'{imagem_model["imagemUnica"]["fileHtml"]}'
+                                        ),
+
+        "html_img_carrossel_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlItem"]["path"]}',
+                                              f'{imagem_model["ImagemCarrossel"]["htmlItem"]["fileHtml"]}'
+                                            ),
+
+        "html_img_carrossel_tag_li_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["path"]}',
+                                                     f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["fileHtml"]}'
+                                                    ),
+
+        "html_img_carrossel_tag_div_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["path"]}',
+                                                      f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["fileHtml"]}'
+                                                     ),
+
+        "html_img_carrossel_script_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlScript"]["path"]}',
+                                                     f'{imagem_model["ImagemCarrossel"]["htmlScript"]["fileHtml"]}'
+                                                    )
+    }
 
     # Pega cada item de grupo do inventário
     for item_inventario in itens_inventario.items():
 
-        item_view: str = gerar_lista_view(item_inventario[1]['nomePasta'],
-                                          item_inventario[1]['itens'], 
-                                          item_view_model
-                                         )
+        item_view: str = ""
+        script_carrossel: bool = False
+
+        qtde_carrossel, item_view = gerar_lista_view(item_inventario[1]['nomePasta'],
+                                                       item_inventario[1]['itens'], 
+                                                       itens_html_model
+                                                      )
 
         pagina_view: str = gerar_pagina_view(item_inventario[1]['titulo'],
                                              item_view, 
-                                             page_view_model
+                                             page_view_model,
+                                             itens_html_model,
+                                             qtde_carrossel
                                             )
 
         nome_arquivo: str = item_inventario[1]['nomePasta']
@@ -129,18 +152,19 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
     return True
 
 
-def gerar_lista_view(nome_pasta: str, itens: list, item_view_html: str) -> str:
+def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tuple[bool, str]:
     """
     Gerar a lista dos view em html
     """
 
     itens_view: str = ""
     num_item: int = 1
+    num_carrossel: int = 0              # contador para cada carrossel
 
     # Pega cada item 
     for item in itens:
 
-        # print(item)
+        item_view: str = itens_model_html['item_view_model']
 
         path_imagem: str = item['pathImg']
         path_local_imagem: str = item['pathLocalArmazenado']
@@ -153,29 +177,36 @@ def gerar_lista_view(nome_pasta: str, itens: list, item_view_html: str) -> str:
                                                       nome_pasta
                                                     )
 
-        item_view: str =  item_view_html.replace(
-                                "[[href-img-item]]",
-                                f"{path_imagem}/{item['arquivoImg']}" 
-                            )
+        if item['pathImgExtra']['ativa'] == False:
+
+            # tratar imagem única
+
+            item_view = monta_tag_img_unica(item_view,
+                                            itens_model_html,
+                                            f"{path_imagem}/{item['arquivoImg']}"
+                                           )
+
+        else:
+
+            # tratar imagem carrossel
+
+            html_carrossel = monta_tag_carrossel(nome_pasta,
+                                                 num_carrossel,
+                                                 item,
+                                                 itens_model_html
+                                                )
+
+            item_view =  item_view.replace(
+                                    "[[item-imagem]]",
+                                    html_carrossel 
+                                )
+
+            num_carrossel = num_carrossel + 1
 
         item_view =  item_view.replace(
                             "[[descricao-item]]",
                             item['descricao']
                     )
-
-        #  O .replace já muda todas das ocorrências
-
-        # existe_num_id = item_view.find("[[num-local-item]]", 0)
-
-        # # Atualiza todas as ocorrências de num-local-item
-        # while (existe_num_id > 0):
-            
-        #     item_view =  item_view.replace(
-        #                     "[[num-local-item]]",
-        #                     str(num_item)
-        #                 )
-
-        #     existe_num_id = item_view.find("[[num-local-item]]", 0)
 
         item_view =  item_view.replace(
                         "[[num-local-item]]",
@@ -201,19 +232,116 @@ def gerar_lista_view(nome_pasta: str, itens: list, item_view_html: str) -> str:
 
         itens_view = itens_view + item_view
 
-    # print(itens_view)
-
-    return itens_view
+    return num_carrossel, itens_view
 
 
-def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str) -> str:
+def monta_tag_img_unica(item_view: str, itens_model_html: dict, pathArq: str ) -> str:
+
+    img_unica_html = itens_model_html['html_img_unica_model']
+
+    img_unica_html =  img_unica_html.replace("[[href-img-item]]",
+                                             pathArq 
+                                            )
+    
+    return  item_view.replace(
+                "[[item-imagem]]",
+                img_unica_html 
+            )
+
+
+def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_model_html: dict) -> str:
+
+    num_slide: int = 0          # contador para cada item do carrossel
+
+    tags_li: str = ""
+    tags_div: str = ""
+    tag_carrossel: str = ""
+
+    pathImagens: str = item['pathImgExtra']['path']
+    pathImagens = pathImagens.replace("[[nomePasta]]",
+                                      nome_pasta
+                                     )
+
+    pathImgs: str = pathImagens.replace("..",
+                                        view_html['pathInventario']
+                                       )
+
+    arquivos_imagem: list = get_arquivos(pathImgs)
+
+    for arq in arquivos_imagem:
+
+        # Criando a tag li e div
+        tag_li: str = itens_model_html['html_img_carrossel_tag_li_model']
+        tag_div: str = itens_model_html['html_img_carrossel_tag_div_model']
+
+        tag_li =  tag_li.replace(
+                        "[[num-carrossel]]",
+                        str(num_carrossel)
+                    )
+
+        tag_li =  tag_li.replace(
+                        "[[num-item-li]]",
+                        str(num_slide)
+                    )
+
+        class_active: str = ""
+        active: str = ""
+
+        if num_slide == 0:
+
+            class_active = 'class="active"'
+            active = 'active'
+
+        tag_li =  tag_li.replace(
+                        "[[class-active-item]]",
+                        class_active
+                    )
+
+        tag_div =  tag_div.replace(
+                        "[[active-item]]",
+                        active
+                    )
+
+        tag_div=  tag_div.replace(
+                        "[[href-img-item]]",
+                        f"{pathImagens}/{arq}"
+                    )
+
+        tags_li = tags_li + tag_li
+        tags_div = tags_div + tag_div
+
+        num_slide = num_slide + 1
+
+    tag_carrossel = itens_model_html['html_img_carrossel_model']
+
+    tag_carrossel =  tag_carrossel.replace(
+                    "[[num-carrossel]]",
+                    str(num_carrossel)
+                )
+
+    tag_carrossel =  tag_carrossel.replace(
+                    "[[list-carroussel]]",
+                    tags_li
+                )
+
+    tag_carrossel =  tag_carrossel.replace(
+                    "[[item-carroussel]]",
+                    tags_div
+                )
+
+    return tag_carrossel
+
+
+def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str, itens_model_html: dict, qtde_carrossel: int) -> str:
     """
     Gerar a página em html do arquivo das views
 
     """
 
+    itens_view: str = itens_model_html['item_view_model']
+
     pagina_view: str = page_view_html.replace(
-                            "[[item-grupo]]",
+                            "[[nome-item-grupo]]",
                             titulo
                         )
 
@@ -222,7 +350,19 @@ def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str) -> str:
                         itens_html
                     )
 
-    # print(pagina_view)
+    if qtde_carrossel > 0:
+
+        tag_script = itens_model_html['html_img_carrossel_script_model']
+
+        tag_script = tag_script.replace(
+                            "[[qtdeCarrossel]]",
+                            str(qtde_carrossel)
+                        )
+
+        pagina_view =  pagina_view.replace(
+                        "[[script-carrossel-imagem]]",
+                        tag_script
+                    )
 
     return pagina_view
 
@@ -248,11 +388,8 @@ def criar_arquivo_html(arquivo_html: str, conteudo_html: str) -> bool:
 
     try:
         
-        # print(arquivo_html)
-
         arq_view = open(arquivo_html, "w", encoding='utf-8')
         bytes = arq_view.write(conteudo_html)
-        # print(bytes)
         arq_view.close()
 
         return True
@@ -260,4 +397,34 @@ def criar_arquivo_html(arquivo_html: str, conteudo_html: str) -> bool:
     except Exception as e:
 
         return False
+
+
+def get_arquivos(path: str) -> list:
+
+    arquivos = []
+
+    itens_dir = os.listdir(path)
+
+    for item in itens_dir:
+        if Path(f'{path}/{item}').is_file():
+            arquivos.append(item)
+
+    return arquivos
+
+
+def get_FAT(path: str, tipo: retorno_path_enum = retorno_path_enum.arquivo) -> list:
+
+    retorno = []
+
+    for dir, sub_pasta, arq in os.walk(path):
+        if tipo == retorno_path_enum.arquivo:
+            retorno.append(arq)
+        elif tipo == retorno_path_enum.diretorio:
+            retorno.append(dir)
+        elif tipo == retorno_path_enum.subpasta:
+            retorno.append(sub_pasta)
+        else:
+            retorno.append(arq)
+
+    return retorno
 

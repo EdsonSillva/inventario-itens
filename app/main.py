@@ -21,19 +21,6 @@ from src.include import (
 
 )
 
-# _ARQUIVO_ITENS_ = "app/src/itens/lista-itens.json"
-
-# index_model = {
-#     "path": "app/src/model/index",
-#     "filePage": "01_page_index.html",
-#     "fileItem": "02_item_index.html"
-# }
-
-# view_model = {
-#     "path": "app/src/model/view",
-#     "filePage": "01_page_view.html",
-#     "fileItem": "02_item_view.html"
-# }
 
 def main():
 
@@ -42,18 +29,9 @@ def main():
     itens_inventario = json.loads(arquivo_itens.read())
     arquivo_itens.close()
 
-    # print(itens_inventario)
-    # print(type(itens_inventario))
-
-    # Gerar a página index - Ok
-    
     pagina_index = gerar_pagina_index(itens_inventario, index_model)
 
-    # codificar criar_arquivo_index()
-
     exec_ok = criar_arquivo_index(pagina_index)
-
-    # TODO: Criar os arquivos dos itens
 
     if exec_ok:
 
