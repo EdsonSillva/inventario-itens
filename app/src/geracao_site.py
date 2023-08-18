@@ -106,24 +106,24 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
         "item_view_model": get_model(f'{model_view["path"]}', f'{model_view["fileItem"]}'),
 
         "html_img_unica_model": get_model(f'{imagem_model["imagemUnica"]["path"]}',
-                                        f'{imagem_model["imagemUnica"]["fileHtml"]}'
-                                       ),
+                                          f'{imagem_model["imagemUnica"]["fileHtml"]}'
+                                        ),
 
         "html_img_carrossel_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlItem"]["path"]}',
-                                            f'{imagem_model["ImagemCarrossel"]["htmlItem"]["fileHtml"]}'
-                                           ),
+                                              f'{imagem_model["ImagemCarrossel"]["htmlItem"]["fileHtml"]}'
+                                            ),
 
         "html_img_carrossel_tag_li_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["path"]}',
-                                                   f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["fileHtml"]}'
-                                                  ),
+                                                     f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["fileHtml"]}'
+                                                    ),
 
-        "html_img_carrossel_div_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["path"]}',
-                                                f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["fileHtml"]}'
-                                              ),
+        "html_img_carrossel_tag_div_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["path"]}',
+                                                      f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["fileHtml"]}'
+                                                     ),
 
         "html_img_carrossel_script_model": get_model(f'{imagem_model["ImagemCarrossel"]["htmlScript"]["path"]}',
-                                                   f'{imagem_model["ImagemCarrossel"]["htmlScript"]["fileHtml"]}'
-                                                  )
+                                                     f'{imagem_model["ImagemCarrossel"]["htmlScript"]["fileHtml"]}'
+                                                    )
     }
 
     # item_view_model = get_model(f'{model_view["path"]}', f'{model_view["fileItem"]}')
@@ -162,6 +162,7 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
         pagina_view: str = gerar_pagina_view(item_inventario[1]['titulo'],
                                              item_view, 
                                              page_view_model,
+                                             itens_html_model,
                                              qtde_carrossel
                                             )
 
@@ -188,7 +189,7 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
     Gerar a lista dos view em html
     """
 
-    itens_view: str = itens_model_html['item_view_model']
+    itens_view: str = ""
     num_item: int = 1
     num_carrossel: int = 0              # contador para cada carrossel
 
@@ -197,7 +198,7 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
 
         # print(item)
 
-        item_view: str = ""
+        item_view: str = itens_model_html['item_view_model']
 
         path_imagem: str = item['pathImg']
         path_local_imagem: str = item['pathLocalArmazenado']
@@ -292,7 +293,7 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
 
 def monta_tag_img_unica(item_view: str, itens_model_html: dict, pathArq: str ) -> str:
 
-    img_unica_html = itens_model_html['html_img_unica_modelvitor']
+    img_unica_html = itens_model_html['html_img_unica_model']
 
     img_unica_html =  img_unica_html.replace("[[href-img-item]]",
                                              pathArq 
@@ -314,25 +315,29 @@ def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_m
 
     pathImagens: str = item['pathImgExtra']['path']
     pathImagens = pathImagens.replace("[[nomePasta]]",
-                                        nome_pasta
+                                      nome_pasta
                                      )
 
-    arquivos_imagem: list = get_arquivos(pathImagens)
+    pathImgs: str = pathImagens.replace("..",
+                                        view_html['pathInventario']
+                                       )
+
+    arquivos_imagem: list = get_arquivos(pathImgs)
 
     for arq in arquivos_imagem:
 
         # Criando a tag li e div
-        tag_li: str = itens_model_html['imagem_carrossel_tag_li_model']
-        tag_div: str = itens_model_html['html_img_carrossel_tag_li_model']
+        tag_li: str = itens_model_html['html_img_carrossel_tag_li_model']
+        tag_div: str = itens_model_html['html_img_carrossel_tag_div_model']
 
         tag_li =  tag_li.replace(
                         "[[num-carrossel]]",
-                        num_carrossel
+                        str(num_carrossel)
                     )
 
         tag_li =  tag_li.replace(
                         "[[num-item-li]]",
-                        num_slide
+                        str(num_slide)
                     )
 
         class_active: str = ""
@@ -367,7 +372,7 @@ def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_m
 
     tag_carrossel =  tag_carrossel.replace(
                     "[[num-carrossel]]",
-                    num_carrossel
+                    str(num_carrossel)
                 )
 
     tag_carrossel =  tag_carrossel.replace(
@@ -407,7 +412,7 @@ def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str, itens_m
 
         tag_script = tag_script.replace(
                             "[[qtdeCarrossel]]",
-                            qtde_carrossel
+                            str(qtde_carrossel)
                         )
 
         pagina_view =  pagina_view.replace(

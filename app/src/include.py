@@ -30,7 +30,9 @@ index_html = {
 }
 
 view_html = {
-    "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view"
+    "pathInventario": f"{Path(__file__).parent.parent.parent}/site-inventario",
+    "pathView": f"{Path(__file__).parent.parent.parent}/site-inventario/view",
+    "pathImg": f"{Path(__file__).parent.parent.parent}/site-inventario/img"
 }
 
 imagem_model = {
@@ -71,14 +73,15 @@ imagem_model = {
             "fileHtml": "03_carrossel_item.html",
             "variaveis": ["[[active-item]]",          # indica active ou não. Colocado no primeiro item da tag <li> 
                           "[[href-img-item]]",        # Controle do carrossel de um item
-                        
                         ]
         },
 
         "htmlScript": {
             
             "path": "app/src/model/view/tipo_imagem",
-            "fileHtml": "04_carrossel_script.html"
+            "fileHtml": "04_carrossel_script.html",
+            "variaveis": ["[[qtdeCarrossel]]"         # indica active ou não. Colocado no primeiro item da tag <li> 
+                        ]
         }
     }
 }
