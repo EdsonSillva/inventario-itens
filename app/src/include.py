@@ -41,7 +41,7 @@ imagem_model = {
 
         "path": "app/src/model/view/tipo_imagem",
         "fileHtml": "00_unica_imagem.html",
-        "variaveis": ["[[href-img-item]]"]          # Local da imagem
+        "variaveis": ["[[href-img-item]]"]            # Local da imagem
 
     },
 

@@ -89,16 +89,6 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
 
     # Carregar as partes dos arquivos para serem usados como modelo
 
-    # path_file_page = f'{model_view["path"]}/{model_view["filePage"]}'
-    # arq_page_view = open(path_file_page, mode="r", encoding="utf-8")
-    # page_view_model = arq_page_view.read()
-    # arq_page_view.close()
-
-    # path_file_view = f'{model_view["path"]}/{model_view["fileItem"]}'
-    # arq_item_view = open(path_file_view, mode="r", encoding="utf-8")
-    # item_view_model = arq_item_view.read()
-    # arq_item_view.close()
-
     page_view_model = get_model(f'{model_view["path"]}', f'{model_view["filePage"]}')
 
     itens_html_model: dict = {
@@ -125,28 +115,6 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
                                                      f'{imagem_model["ImagemCarrossel"]["htmlScript"]["fileHtml"]}'
                                                     )
     }
-
-    # item_view_model = get_model(f'{model_view["path"]}', f'{model_view["fileItem"]}')
-
-
-    # Abrir Imagem única
-    # Abrir carrossel imagem, tag_li, item, script
-    # imagem_unica_model = get_model(f'{imagem_model["imagemUnica"]["path"]}',
-    #                                f'{imagem_model["imagemUnica"]["fileHtml"]}'
-    #                                )
-    # imagem_carrossel_model = get_model(f'{imagem_model["ImagemCarrossel"]["htmlItem"]["path"]}',
-    #                                    f'{imagem_model["ImagemCarrossel"]["htmlItem"]["fileHtml"]}'
-    #                                   )
-    # imagem_carrossel_tag_li_model = get_model(f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["path"]}',
-    #                                           f'{imagem_model["ImagemCarrossel"]["htmlTagList"]["fileHtml"]}'
-    #                                          )
-    # imagem_carrossel_div_model = get_model(f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["path"]}',
-    #                                        f'{imagem_model["ImagemCarrossel"]["htmlItemDiv"]["fileHtml"]}'
-    #                                       )
-    # imagem_carrossel_script_model = get_model(f'{imagem_model["ImagemCarrossel"]["htmlScript"]["path"]}',
-    #                                           f'{imagem_model["ImagemCarrossel"]["htmlScript"]["fileHtml"]}'
-    #                                          )
-    # arquivos: list = get_arquivos(f'{model_view["path"]}')
 
     # Pega cada item de grupo do inventário
     for item_inventario in itens_inventario.items():
@@ -196,8 +164,6 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
     # Pega cada item 
     for item in itens:
 
-        # print(item)
-
         item_view: str = itens_model_html['item_view_model']
 
         path_imagem: str = item['pathImg']
@@ -220,17 +186,9 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
                                             f"{path_imagem}/{item['arquivoImg']}"
                                            )
 
-            # img_unica_html = itens_model_html['html_img_unica_model']
-            # img_unica_html =  img_unica_html.replace(
-            #                         "[[href-img-item]]",
-            #                         f"{path_imagem}/{item['arquivoImg']}" 
-            #                     )
-            # item_view =  item_view.replace(
-            #                         "[[item-imagem]]",
-            #                         img_unica_html 
-            #                     )
-
         else:
+
+            # tratar imagem carrossel
 
             html_carrossel = monta_tag_carrossel(nome_pasta,
                                                  num_carrossel,
@@ -249,18 +207,6 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
                             "[[descricao-item]]",
                             item['descricao']
                     )
-
-        #  O .replace já muda todas das ocorrências dentro da string
-
-        # existe_num_id = item_view.find("[[num-local-item]]", 0)
-        
-        # Atualiza todas as ocorrências de num-local-item
-        # while (existe_num_id > 0):
-        #     item_view =  item_view.replace(
-        #                     "[[num-local-item]]",
-        #                     str(num_item)
-        #                 )
-        #     existe_num_id = item_view.find("[[num-local-item]]", 0)
 
         item_view =  item_view.replace(
                         "[[num-local-item]]",
@@ -285,8 +231,6 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
                     )
 
         itens_view = itens_view + item_view
-
-    # print(itens_view)
 
     return num_carrossel, itens_view
 
@@ -420,8 +364,6 @@ def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str, itens_m
                         tag_script
                     )
 
-    # print(pagina_view)
-
     return pagina_view
 
 
@@ -446,11 +388,8 @@ def criar_arquivo_html(arquivo_html: str, conteudo_html: str) -> bool:
 
     try:
         
-        # print(arquivo_html)
-
         arq_view = open(arquivo_html, "w", encoding='utf-8')
         bytes = arq_view.write(conteudo_html)
-        # print(bytes)
         arq_view.close()
 
         return True
@@ -488,98 +427,4 @@ def get_FAT(path: str, tipo: retorno_path_enum = retorno_path_enum.arquivo) -> l
             retorno.append(arq)
 
     return retorno
-
-
-
-
-
-
-
-# def gerar_lista_view(nome_pasta: str, itens: list, item_view_html: str) -> str:
-#     """
-#     Gerar a lista dos view em html
-#     """
-
-#     itens_view: str = ""
-#     num_item: int = 1
-
-#     # Pega cada item 
-#     for item in itens:
-
-#         # print(item)
-
-#         path_imagem: str = item['pathImg']
-#         path_local_imagem: str = item['pathLocalArmazenado']
-
-#         path_imagem = path_imagem.replace("[[nomePasta]]",
-#                                            nome_pasta
-#                                         )
-        
-#         path_local_imagem = path_local_imagem.replace("[[nomePasta]]",
-#                                                       nome_pasta
-#                                                     )
-
-#         if item['pathImgExtra']['ativa'] == False:
-
-#             # tratar imagem única
-
-#             img_unica = 
-
-#         else:
-
-#             # tratar carrossel
-
-#             pass
-
-#         # item_view: str =  item_view_html.replace(
-#         #                         "[[href-img-item]]",
-#         #                         f"{path_imagem}/{item['arquivoImg']}" 
-#         #                     )
-
-#         item_view =  item_view.replace(
-#                             "[[descricao-item]]",
-#                             item['descricao']
-#                     )
-
-#         #  O .replace já muda todas das ocorrências
-
-#         # existe_num_id = item_view.find("[[num-local-item]]", 0)
-
-#         # # Atualiza todas as ocorrências de num-local-item
-#         # while (existe_num_id > 0):
-            
-#         #     item_view =  item_view.replace(
-#         #                     "[[num-local-item]]",
-#         #                     str(num_item)
-#         #                 )
-
-#         #     existe_num_id = item_view.find("[[num-local-item]]", 0)
-
-#         item_view =  item_view.replace(
-#                         "[[num-local-item]]",
-#                         str(num_item)
-#                     )
-        
-#         num_item = num_item + 1     # Adiciona mais um na contagem
-
-#         item_view =  item_view.replace(
-#                         "[[local-item]]",
-#                         item['localArmazenado']
-#                     )
-
-#         item_view =  item_view.replace(
-#                         "[[href-img-local]]",
-#                         f"{path_local_imagem}/{item['arquivoImgArmazenado']}"
-#                     )
-
-#         item_view =  item_view.replace(
-#                         "[[palavra-chave-item]]",
-#                         item['palavraChave']
-#                     )
-
-#         itens_view = itens_view + item_view
-
-#     # print(itens_view)
-
-#     return itens_view
 
