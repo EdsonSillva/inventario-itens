@@ -1,0 +1,10 @@
+
+
+app/.dumps
+
+# não subir as imagens dos itens
+site-inventario/img
+
+
+
+

@@ -1,4 +1,166 @@
 {
+
+    "audioVideo": {
+
+        "titulo": "Audio & Videos",
+        "nomePasta": "audioVideo",
+        "descricaoGrupo": "HDMI, RCA, spliter, Equipamentos, Receptor BlueTooth, etc.",
+
+        "itens": [ 
+            {
+                "descricao": "Spliter HDMI com RX e TX via RJ45 usado no decoder das câmeras da intelbras, com fonte de alimentação",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "Intelbras, Rx/Tx, RJ45",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "cameraItensIntelbras.jpg",
+                "pathImgExtra": {
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/cameraItensIntelbras"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-VazadaIntelbras.jpg"
+            },
+
+            {
+                "descricao": "Amplificador RCA. Sendo utilizado na TV da sala para receber o sinal RCA e distribuir nas caixas das paredes",
+                "localArmazenado": "Sendo usado atrás da TV da sala",
+                "palavraChave": "RCA, Amplificador",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "amplificadorRCA.jpeg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "sem-imagem.jpg"
+            },
+
+            {
+                "descricao": "Captura: entrada HDMI saída USB",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom (dentro da caixa Lvpin preta/laranja)",
+                "palavraChave": "Captura, video",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "capturaHDMIparaUSB.jpeg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Switch HDMI - 3 entradas HDMI para 1 saída HDMI, com seletor de entrada",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom (dentro da caixa Lvpin preta/laranja)",
+                "palavraChave": "Switch, HDMI",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "switch-3Entradas-1SaidaHDMI.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Aquario - conversor de sinal de TV analógico para HDMI",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom (dentro da caixa Lvpin preta/laranja)",
+                "palavraChave": "HDMI",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "aquario-TVparaHDMI.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Mini Conversor de HDMI para RCA",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "HDMI, RCA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "conversorMiniHDMIparaRCA.jpeg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Conversor de audio óptico para RCA",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "Conversor, óptico",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "conversorOpticoAudio.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Conversor sinal de TV analógico para TV e RCA",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "HDMI, óptico",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "conversorTV-RCA.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Switch RCA - 3 entradas RCA para 1 saída RCA, com seletor de entrada",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "RCA, Seletor, Switch",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "switch-3Entradas-1SaidaRCA.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Receptor e transmissor Bluetooth com sída RCA e P3",
+                "localArmazenado": "Caixa de plástico vazada com número <b>2</b> e está no Sotom",
+                "palavraChave": "Bluetooth, recepção, transmissão, RCA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "receptorTransmissorBluetooth5.0.jpeg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            }
+
+        ]
+
+    },
+
     "cabos": {
 
         "titulo": "Cabos",
@@ -7,105 +169,153 @@
 
         "itens": [ 
             {
-                "descricao": "Cabo de conexão HDMI nas duas pontas",
-                "localArmazenado": "Sotom",
+                "descricao": "Cabos de conexão HDMIxHDMI macho nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
                 "palavraChave": "HDMI, Cabo, Conexão",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "alicate.jpg",
+                "arquivoImg": "caboHDMI.jpg",
                 "pathImgExtra": {
                     "ativa": true,
-                    "path": "../img/[[nomePasta]]/Extra/AlicateSH"
+                    "path": "../img/[[nomePasta]]/Extra/cabosHDMI"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"                
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
             },
-            
+
             {
-                "descricao": "Cabo de força três pinos (antigo)",
-                "localArmazenado": "Quarto garagem",
-                "palavraChave": "Cabo, força, eletricidade",
+                "descricao": "Cabo de conexão DVI-dxDVI-d nas duas pontas (Pinos: 18 + 1 Conexão entre: PC e LCDs, Display Digitais, Projetores, HDTV)",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "DVI-d, Cabo, Conexão",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "caboDVId.jpg",
                 "pathImgExtra": {
                     "ativa": false,
                     "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabo de conexão de fibra óptica APC nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "Fibra, APC, óptica",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "caboFibraAPC.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabo de conexão óptico nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "óptica",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "caboOpticoSom.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabo de conexão RCA e Video Component nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "RCA, Video, Component",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "caboRCABranco.jpg",
+                "pathImgExtra": {
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/cabosRCA"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabo de conexão RCA para P3 audio",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "RCA, P3, Som",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "RCAparaP3.jpg",
+                "pathImgExtra": {
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/cabosRCAP3"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabos de conexão P3 x P3 nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "P3, Som",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "cabosSomP3.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabos de conexão VGA x VGA nas duas pontas",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "VGA",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "cabosVGA.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Cabos de força",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>1</b> e está no Sotom",
+                "palavraChave": "Força, eletricidade",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "cabosForca.jpg",
+                "pathImgExtra": {
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/cabosForca"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa1-Vazada.jpg"
             },
 
             {
                 "descricao": "Cabo de de teste para multimetro e/ou fonte de bancada",
-                "localArmazenado": "Em uso no multimetro amarelo",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
                 "palavraChave": "Teste, força, eletricidade",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "caboMultimetroPretoVermelho.jpg",
                 "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/cabosMultimetro"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
-            }
-
-
-        ]
-
-    },
-
-    "audioVideo": {
-
-        "titulo": "Audio & Videos",
-        "nomePasta": "audioVideo",
-        "descricaoGrupo": "HDMI, RCA, Equipamentos, Receptor BlueTooth, etc.",
-
-        "itens": [ 
-            {
-                "descricao": "Receptor e transmissor Bluetooth",
-                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
-                "palavraChave": "Bluetooth, recepção, transmissão, RCA",
-
-                "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
-                "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
-                },
-                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"                
-            },
-
-            {
-                "descricao": "Equipamento de audio óptico com saida RCA",
-                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
-                "palavraChave": "Audio, óptico, RCA",
-
-                "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
-                "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
-                },
-                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
-            },
-
-            {
-                "descricao": "Equipamento de audio óptico com saida RCA",
-                "localArmazenado": "Caixa de plástico vazada e está no Sotom",
-                "palavraChave": "Audio, óptico, RCA",
-
-                "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
-                "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
-                },
-                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
             }
 
 
@@ -121,24 +331,116 @@
 
         "itens": [ 
             {
-                "descricao": "Conector USB type-c para USB 3.0",
-                "localArmazenado": "Caixa vermelha de componentes que fica no armário do salão",
-                "palavraChave": "USB, Type-c, 3.0",
+                "descricao": "Conector de video: USB type-c para USB 3.0, USB para VGA, etc",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom (dentro de uma caixa)",
+                "palavraChave": "USB, Type-c, 3.0, VGA",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "conectorUSBparaHDMI.jpg",
                 "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/conectorVideo"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
+                "arquivoImgArmazenado": "caixa2-VazadaVideos.jpg"
             },
 
             {
-                "descricao": "Conector USB 3.0 para USB type-c",
-                "localArmazenado": "Caixa vermelha de componentes que fica no armário do salão",
-                "palavraChave": "USB, Type-c, 3.0",
+                "descricao": "Conectores para crimpagem (terminais para uso com microcontroladores - IoT)",
+                "localArmazenado": "Caixa plático transparente que fica na gaveta do armário do salão",
+                "palavraChave": "Crimpagem, Terminais",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "conectoresCrimpagem.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "sem-imagem.jpg"
+            }
+            
+
+        ]
+
+    },
+
+    "equipamentos": {
+
+        "titulo": "Equipamentos",
+        "nomePasta": "equipamentos",
+        "descricaoGrupo": "Equipamentos e máquinas em geral",
+
+        "itens": [
+            {
+                "descricao": "Gancho com decalque de R$ 1,99",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom (dentro da caixa Lvpin preta/laranja)",
+                "palavraChave": "gancho",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "ganchoParede.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"                
+            },
+
+            {
+                "descricao": "Molas em espiral de R$ 1,99",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom (dentro da caixa Lvpin preta/laranja)",
+                "palavraChave": "Mola",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "Molas.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"                
+            },
+
+            {
+                "descricao": "Scaner ODB carroRama OBDII da multilaser",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "Scaner, ODBII, Carro",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "scanerODBII-Carro.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+            {
+                "descricao": "Regua de plático de 15cm com lupa na ponta (tem duas)",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>2</b> e está no Sotom",
+                "palavraChave": "Régua, lupa",
+
+                "pathImg": "../img/[[nomePasta]]",
+                "arquivoImg": "reguaLupa.jpg",
+                "pathImgExtra": {
+                    "ativa": false,
+                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                },
+                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
+                "arquivoImgArmazenado": "caixa2-Vazada.jpg"
+            },
+
+
+            
+
+            
+
+            {
+                "descricao": "Serra marmore (Maquita)",
+                "localArmazenado": "Em uma caixa de platico no Quatinho da garagem",
+                "palavraChave": "Maquita, serra marmore, etc",
 
                 "pathImg": "../img/[[nomePasta]]",
                 "arquivoImg": "Detona.png",
@@ -147,12 +449,15 @@
                     "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
+                "arquivoImgArmazenado": "20190207_183200.jpg"                
             }
 
         ]
 
     },
+
+
+
 
     "ferramentas": {
 
@@ -167,13 +472,13 @@
                 "palavraChave": "Alicate, crimpagem, conectores",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "alicate-bracadeira-20230804_163548.jpg",
                 "pathImgExtra": {
                     "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                    "path": "../img/[[nomePasta]]/Extra/AlicateSH"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
+                "arquivoImgArmazenado": "20230819_160218.jpg"
             },
 
             {
@@ -189,62 +494,32 @@
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
                 "arquivoImgArmazenado": "20190207_183200.jpg"
-            },
-
-            {
-                "descricao": "Alicate de crimpagem de RJ45, RJ11",
-                "localArmazenado": "Mala amarela",
-                "palavraChave": "Rede, crimpagem",
-
-                "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
-                "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
-                },
-                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
-            },
-
-            {
-                "descricao": "Alicate de descascar fio",
-                "localArmazenado": "Mala amarela",
-                "palavraChave": "Fio, descascar",
-
-                "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
-                "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
-                },
-                "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"
             }
 
         ]
 
     },
 
-    "equipamentos": {
+    "fonteForca": {
 
-        "titulo": "Equipamentos",
-        "nomePasta": "equipamentos",
-        "descricaoGrupo": "Equipamentos e máquinas em geral",
+        "titulo": "Fontes de energia",
+        "nomePasta": "fonteForca",
+        "descricaoGrupo": "Fontes de alimentação para fitas de led ou equipamentos em geral",
 
         "itens": [ 
             {
-                "descricao": "Serra marmore (Maquita)",
-                "localArmazenado": "Em uma caixa de platico no Quatinho da garagem",
-                "palavraChave": "Maquita, serra marmore, etc",
+                "descricao": "Fontes de energia de 12v de 2A, 2.5A, 5A e 30A",
+                "localArmazenado": "Caixa de plástico vazada com númenro <b>1</b> e está no Sotom",
+                "palavraChave": "Fontes de alimentação de energia",
 
                 "pathImg": "../img/[[nomePasta]]",
-                "arquivoImg": "Detona.png",
+                "arquivoImg": "fonteGeral.jpg",
                 "pathImgExtra": {
-                    "ativa": false,
-                    "path": "../img/[[nomePasta]]/Extra/{DigitarNomePastaCriada}"
+                    "ativa": true,
+                    "path": "../img/[[nomePasta]]/Extra/Fontes"
                 },
                 "pathLocalArmazenado": "../img/[[nomePasta]]/local",
-                "arquivoImgArmazenado": "20190207_183200.jpg"                
+                "arquivoImgArmazenado": "caixa1-Vazada.jpg"                
             }
 
         ]

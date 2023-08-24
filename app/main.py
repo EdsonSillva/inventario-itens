@@ -18,9 +18,7 @@ from src.include import (
     _ARQUIVO_ITENS_,
     index_model,
     view_model
-
 )
-
 
 def main():
 
@@ -39,7 +37,6 @@ def main():
 
         if exec_ok:
             print("Criação do site com sucesso")
-    
 
 
 # Executar a ciação do site Inventário de Itens da Familia Sillva

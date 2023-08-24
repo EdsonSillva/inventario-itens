@@ -120,12 +120,12 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
     for item_inventario in itens_inventario.items():
 
         item_view: str = ""
-        script_carrossel: bool = False
+        qtde_itens: int = 0
 
-        qtde_carrossel, item_view = gerar_lista_view(item_inventario[1]['nomePasta'],
-                                                       item_inventario[1]['itens'], 
-                                                       itens_html_model
-                                                      )
+        qtde_carrossel, qtde_itens, item_view = gerar_lista_view(item_inventario[1]['nomePasta'],
+                                                                 item_inventario[1]['itens'], 
+                                                                 itens_html_model
+                                                                )
 
         pagina_view: str = gerar_pagina_view(item_inventario[1]['titulo'],
                                              item_view, 
@@ -139,7 +139,7 @@ def gerar_views(itens_inventario: dict, model_view: dict) -> bool:
         exec_ok = criar_arquivo_view(nome_arquivo, pagina_view)
 
         if exec_ok:
-            msg = f">> Criado com sucesso o arquivo: {nome_arquivo}.html"
+            msg = f">> Criado com sucesso o arquivo: {nome_arquivo}.html com [{qtde_itens}] {'item' if qtde_itens <= 1 else 'itens'}"
         else:
             erro = erro + 1
             msg = f">> Problema na criação do arquivo: {nome_arquivo}.html"
@@ -193,7 +193,8 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
             html_carrossel = monta_tag_carrossel(nome_pasta,
                                                  num_carrossel,
                                                  item,
-                                                 itens_model_html
+                                                 itens_model_html,
+                                                 f"{path_imagem}/{item['arquivoImg']}"
                                                 )
 
             item_view =  item_view.replace(
@@ -232,10 +233,10 @@ def gerar_lista_view(nome_pasta: str, itens: list, itens_model_html: dict) -> tu
 
         itens_view = itens_view + item_view
 
-    return num_carrossel, itens_view
+    return num_carrossel, num_item - 1, itens_view
 
 
-def monta_tag_img_unica(item_view: str, itens_model_html: dict, pathArq: str ) -> str:
+def monta_tag_img_unica(item_view: str, itens_model_html: dict, pathArq: str) -> str:
 
     img_unica_html = itens_model_html['html_img_unica_model']
 
@@ -249,13 +250,14 @@ def monta_tag_img_unica(item_view: str, itens_model_html: dict, pathArq: str ) -
             )
 
 
-def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_model_html: dict) -> str:
+def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_model_html: dict, arqImgUnico: str) -> str:
 
     num_slide: int = 0          # contador para cada item do carrossel
 
     tags_li: str = ""
     tags_div: str = ""
     tag_carrossel: str = ""
+    path_imagem: str = ""
 
     pathImagens: str = item['pathImgExtra']['path']
     pathImagens = pathImagens.replace("[[nomePasta]]",
@@ -266,7 +268,10 @@ def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_m
                                         view_html['pathInventario']
                                        )
 
+    # TODO acertando o insert do primeiro arquivo
+
     arquivos_imagem: list = get_arquivos(pathImgs)
+    arquivos_imagem.insert(0, arqImgUnico)
 
     for arq in arquivos_imagem:
 
@@ -287,7 +292,11 @@ def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_m
         class_active: str = ""
         active: str = ""
 
+        path_imagem = f"{pathImagens}/{arq}"
+
         if num_slide == 0:
+
+            path_imagem = arqImgUnico
 
             class_active = 'class="active"'
             active = 'active'
@@ -304,7 +313,7 @@ def monta_tag_carrossel(nome_pasta: str, num_carrossel: int, item: dict, itens_m
 
         tag_div=  tag_div.replace(
                         "[[href-img-item]]",
-                        f"{pathImagens}/{arq}"
+                        path_imagem
                     )
 
         tags_li = tags_li + tag_li
@@ -350,6 +359,8 @@ def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str, itens_m
                         itens_html
                     )
 
+    tag: any
+
     if qtde_carrossel > 0:
 
         tag_script = itens_model_html['html_img_carrossel_script_model']
@@ -358,11 +369,18 @@ def gerar_pagina_view(titulo: str, itens_html: str, page_view_html: str, itens_m
                             "[[qtdeCarrossel]]",
                             str(qtde_carrossel)
                         )
+        
+        tag = tag_script
 
-        pagina_view =  pagina_view.replace(
-                        "[[script-carrossel-imagem]]",
-                        tag_script
-                    )
+    else:
+
+        tag = ""
+
+    pagina_view =  pagina_view.replace(
+                    "[[script-carrossel-imagem]]",
+                    tag
+                )
+
 
     return pagina_view
 

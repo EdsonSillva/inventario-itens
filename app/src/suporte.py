@@ -10,3 +10,4 @@ def get_model(path: str, file: str):
     arq_model.close()
 
     return model
+
